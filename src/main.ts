@@ -30,6 +30,7 @@ import './components/tts';
 import './components/progress';
 import './components/powerstrip';
 import './components/mediaControls';
+import './components/volumeSlider';
 
 import { ICON, UPDATE_PROPS, BREAKPOINT } from './const';
 import { HomeAssistant, MediaPlayerEntity } from './types';

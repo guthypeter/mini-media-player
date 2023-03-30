@@ -118,16 +118,16 @@ class MiniMediaPlayerMediaControls extends LitElement {
   renderVolSlider(muted) {
     return html`
       ${this.renderMuteButton(muted)}
-      <ha-slider
+      <mmp-volume-slider
+          .player=${this.player}
         @change=${this.handleVolumeChange}
-        @click=${e => e.stopPropagation()}
         ?disabled=${muted}
         min=${this.minVol} max=${this.maxVol}
         value=${this.player.vol * 100}
         step=${this.config.volume_step || 1}
         dir=${'ltr'}
         ignore-bar-touch pin>
-      </ha-slider>
+      </mmp-volume-slider>
     `;
   }
 
