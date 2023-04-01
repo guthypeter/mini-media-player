@@ -63,7 +63,7 @@ export interface MiniMediaPlayerShortcuts {
   list?: MiniMediaPlayerShortcutItem[];
   Buttons?: MiniMediaPlayerShortcutItem[];
   hide_when_off?: boolean;
-  columns?: 1 | 2 | 3 | 4 | 5 | 6;
+  width?: number;
   column_height?: number;
   label?: string;
   attribute?: string;
@@ -77,6 +77,7 @@ export interface MiniMediaPlayerShortcutItem {
   icon?: string;
   image?: string;
   cover?: string;
+  width?: number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: Record<string, any>;
 }

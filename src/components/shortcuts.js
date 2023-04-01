@@ -53,7 +53,6 @@ class MiniMediaPlayerShortcuts extends LitElement {
           <mmp-button
             style="${styleMap(this.shortcutStyle(item))}"
             raised
-            columns=${this.shortcuts.columns}
             ?color=${item.id === active}
             class='mmp-shortcuts__button'
             @click=${e => this.handleShortcut(e, item)}>
@@ -92,6 +91,7 @@ class MiniMediaPlayerShortcuts extends LitElement {
   shortcutStyle(item) {
     return {
       'min-height': `${this.height}px`,
+      'min-width': `calc(${item.width || this.shortcuts.width || 25}% - 8px)`,
       ...(item.cover && { 'background-image': `url(${item.cover})` }),
     };
   }
@@ -125,21 +125,6 @@ class MiniMediaPlayerShortcuts extends LitElement {
         }
         .mmp-shortcuts__button > div[align='right'] {
           justify-content: flex-end;
-        }
-        .mmp-shortcuts__button[columns='1'] {
-          min-width: calc(100% - 8px);
-        }
-        .mmp-shortcuts__button[columns='3'] {
-          min-width: calc(33.33% - 8px);
-        }
-        .mmp-shortcuts__button[columns='4'] {
-          min-width: calc(25% - 8px);
-        }
-        .mmp-shortcuts__button[columns='5'] {
-          min-width: calc(20% - 8px);
-        }
-        .mmp-shortcuts__button[columns='6'] {
-          min-width: calc(16.66% - 8px);
         }
         .mmp-shortcuts__button > div > span {
           line-height: calc(var(--mmp-unit) * .6);
