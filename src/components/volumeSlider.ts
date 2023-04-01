@@ -37,11 +37,10 @@ export class MiniMediaPlayerVolumeSlider extends LitElement {
     }
 
     throttledUpdate = throttle(() => {
-        console.log('requestUpdate');
         this.requestUpdate('value', this._value);
     }, 500, null);
 
-    set value(val) {
+    set value(val: number) {
         this._value = val;
         this.throttledUpdate();
         if (!this.touchActive) {
@@ -154,17 +153,14 @@ export class MiniMediaPlayerVolumeSlider extends LitElement {
             position: relative;
             height: 2em;
             cursor: pointer;
-            border-radius: var(--ha-card-border-radius, 12px);
-            border-width: var(--ha-card-border-width, 1px);
-            border-style: solid;
-            border-color: var(--ha-card-border-color, var(--divider-color, #e0e0e0) );
           }
           
           .volume-slider {
             background-color: var(--primary-background-color);
             background-repeat: repeat-y;
             background-size: 100%;
-            height: 100%;
+            height: 15%;
+            margin-top: 3%;
             background-image: linear-gradient(280deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 
             border-radius: var(--ha-card-border-radius, 12px);
